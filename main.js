@@ -1,25 +1,37 @@
-//const monthlySalaryInput = document.querySelector(".monthly-salary");
+const displayChart = (expenses, leisure, savings) => {
+  const ctx = document.getElementById("myChart");
 
-//const salaryTotal = document.querySelector(".salary-total .value");
-//const expensesTotal = document.querySelector(".expenses-total .value");
-//const leisureTotal = document.querySelector(".leisure-total .value");
-//const savingsTotal = document.querySelector(".savings-total .value");
+  new Chart(ctx, {
+    type: "pie",
+    data: {
+      labels: ["Expenses", "Leisure", "Savings"],
+      datasets: [
+        {
+          data: [expenses, leisure, savings],
+          borderWidth: 1,
+          backgroundColor: ["#e63946", "#14213d", "#fca311"],
+        },
+      ],
+    },
+  });
+};
 
-const calculateBtn = document.querySelector(".calculate-button");
-alert(calculateBtn);
-
-let salary = document.getElementById("moneyin").value;
-salary = salary.replace(/e.g £/g, "");
-let expenses = (50 / 100) * parseInt(salary);
-let leisure = (20 / 100) * parseInt(salary);
-let savings = (30 / 100) * parseInt(salary);
+let buttonMain = document.getElementById("btn-1");
 
 function showSalary() {
+  let salary = document.getElementById("moneyin").value;
+  salary = salary.replace(/e.g £/g, "");
+  let expenses = (50 / 100) * parseInt(salary);
+  let leisure = (20 / 100) * parseInt(salary);
+  let savings = (30 / 100) * parseInt(salary);
+
   document.getElementById("displaysalary").innerHTML = parseInt(salary);
   document.getElementById("display-expenses").innerHTML = expenses;
   document.getElementById("display-leisure").innerHTML = leisure;
   document.getElementById("display-savings").innerHTML = savings;
+  displayChart(expenses, leisure, savings);
 }
+
 showSalary();
 
-//calculateBtn.addEventListener("click");
+buttonMain.addEventListener("click", showSalary);

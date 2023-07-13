@@ -9,10 +9,10 @@
   <body>
     <div class="salary-allocation">
       <div class="top">
-        <h2>Salary allocation</h2>
+        <h2>Salary Allocation</h2>
         <form action="#">
           <div class="group">
-            <div class="title">Your monthly Salary</div>
+            <div class="title">Your Monthly Salary</div>
             <input
               type="text"
               id="moneyin"
@@ -41,12 +41,12 @@
             <h3>Savings</h3>
             <div class="value" id="display-savings">12346</div>
           </div>
-          <button class="calculate-button">Calculate</button>
+          <button class="calculate-button" id="btn-1">Calculate</button>
         </div>
-        <div class="right">Chart</div>
+        <div class="right"><canvas id="myChart"></canvas></div>
       </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
